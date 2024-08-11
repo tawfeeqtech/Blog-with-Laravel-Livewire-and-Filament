@@ -1,0 +1,44 @@
+php artisan make:model Post -m -c -f
+php artisan make:model Category -m -f
+php artisan make:model Comment -m
+php artisan make:migration create_category_post_table
+php artisan make:migration create_post_like_table
+php artisan make:migration add_role_to_users
+
+php artisan make:controller HomeController -i
+php artisan make:component Posts/PostCard --view
+php artisan make:component Posts/PostItem --view
+php artisan make:component Badge --view
+php artisan make:component categoryBadge --view
+php artisan make:component posts/author --view
+php artisan make:livewire PostList
+php artisan make:livewire SerachBox
+php artisan make:livewire LikeButton
+php artisan make:livewire PostComments
+https://filamentphp.com/docs/3.x/panels/installation
+https://flowbite.com/docs/components/indicators/
+php artisan make:filament-resource Category
+php artisan make:filament-resource Post --soft-deletes
+php artisan make:filament-resource User --generate
+php artisan make:filament-resource Comment
+php artisan make:filament-relation-manager PostResource comments comment
+php artisan make:filament-widget UserStatsWidget --stats-overview
+UserResource
+php artisan make:filament-widget PostsPerMonthChart --chart
+php artisan make:filament-widget LatestComments --table
+
+
+
+
+
+php artisan make:view posts/show
+php artisan make:policy UserPolicy --model=User
+php artisan make:policy PostPolicy --model=Post
+php artisan make:policy CategoryPolicy --model=Category
+php artisan make:middleware SetLocale
+php artisan lang:publish
+
+composer require barryvdh/laravel-debugbar --dev
+composer require flowframe/laravel-trend
+composer require outhebox/blade-flags
+
