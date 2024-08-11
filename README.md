@@ -5,6 +5,9 @@
     <a href="https://laravel-livewire.com/" target="_blank">
         <img src="https://laravel-livewire.com/img/underwater_jelly.svg" width="106px" height="143px" alt="livewire Logo">
     </a>
+    <a href="https://filamentphp.com/" target="_blank">
+        <img src="https://filamentphp.com/favicon/apple-touch-icon.png?v=w1dBNxT7Wg" width="106px" height="143px" alt="filament Logo">
+    </a>
 
 </p>
 
