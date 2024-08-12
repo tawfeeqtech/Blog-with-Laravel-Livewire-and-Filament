@@ -6,6 +6,7 @@ use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use Filament\Forms\Components\ColorPicker;
+
 
 class CategoryResource extends Resource
 {
@@ -35,8 +38,11 @@ class CategoryResource extends Resource
                         $set('slug', Str::slug($state));
                     }),
                 TextInput::make('slug')->required()->minLength(1)->maxLength(150)->unique(ignoreRecord: true),
-                TextInput::make('text_color')->nullable(),
-                TextInput::make('bg_color')->nullable(),
+                Select::make('text_color')->label('Text Color')->options(Category::COLOR)->searchable()->nullable(),
+                // TextInput::make('text_color')->nullable(),
+                Select::make('bg_color')->label('Background Color')->options(Category::COLOR)->searchable()->nullable(),
+
+                // TextInput::make('bg_color')->nullable(),
             ]);
     }
 
