@@ -71,9 +71,12 @@ class UserResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('role')
-                    ->sortable()
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('roles')->relationship('roles', 'name')
+                //     ->sortable()
+                //     ->searchable(),
+                Tables\Columns\TextColumn::make('roles.name')->counts('roles')
+
+
 
 
             ])

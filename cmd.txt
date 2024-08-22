@@ -45,3 +45,8 @@ composer require outhebox/blade-flags
 
 Role and Permission
 php artisan make:filament-resource Permission --generate
+
+php artisan make:model Role
+php artisan make:policy RolePolicy --model=Role
+php artisan make:model Permission
+php artisan make:policy PermissionPolicy --model=Permission
