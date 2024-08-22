@@ -11,61 +11,66 @@ class CategoryPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    /* public function viewAny(User $user): bool
     {
-        return $user->isAdmin() || $user->isEditor();
-    }
+        return $user->hasPermissionTo('view-any-category');
+        // return $user->isAdmin() || $user->isEditor();
+    } */
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Category $category): bool
-    {
-        return $user->isAdmin() || $user->isEditor();
-    }
+    // public function view(User $user, Category $category): bool
+    // {
+    //     return $user->hasPermissionTo('view-category');
+    //     // return $user->isAdmin() || $user->isEditor();
+    // }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
-    {
-        return $user->isAdmin() || $user->isEditor();
-    }
+    // public function create(User $user): bool
+    // {
+    //     return $user->hasPermissionTo('create-category');
+    //     // return $user->isAdmin() || $user->isEditor();
+    // }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Category $category): bool
-    {
-        return $user->isAdmin() || $user->isEditor();
-    }
+    // public function update(User $user, Category $category): bool
+    // {
+    //     return $user->hasPermissionTo('edit-category');
+    //     // return $user->isAdmin() || $user->isEditor();
+    // }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Category $category): bool
-    {
-        return $user->isAdmin();
-    }
+    // public function delete(User $user, Category $category): bool
+    // {
+    //     return $user->hasPermissionTo('delete-category');
+    //     // return $user->isAdmin();
+    // }
 
-    public function deleteAny(User $user): bool
-    {
-        return $user->isAdmin();
-    }
+    // public function deleteAny(User $user): bool
+    // {
+    //     return $user->isAdmin();
+    // }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Category $category): bool
-    {
-        return $user->isAdmin();
-    }
+    // public function restore(User $user, Category $category): bool
+    // {
+    //     return $user->isAdmin();
+    // }
 
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Category $category): bool
-    {
-        return $user->isAdmin();
-    }
+    // public function forceDelete(User $user, Category $category): bool
+    // {
+    //     return $user->isAdmin();
+    // }
 }

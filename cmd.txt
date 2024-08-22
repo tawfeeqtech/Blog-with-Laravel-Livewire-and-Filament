@@ -17,6 +17,7 @@ php artisan make:livewire LikeButton
 php artisan make:livewire PostComments
 https://filamentphp.com/docs/3.x/panels/installation
 https://flowbite.com/docs/components/indicators/
+https://heroicons.com/
 php artisan make:filament-resource Category
 php artisan make:filament-resource Post --soft-deletes
 php artisan make:filament-resource User --generate
@@ -42,3 +43,5 @@ composer require barryvdh/laravel-debugbar --dev
 composer require flowframe/laravel-trend
 composer require outhebox/blade-flags
 
+Role and Permission
+php artisan make:filament-resource Permission --generate

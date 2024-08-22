@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\UserResource\Pages;
+namespace App\Filament\Resources\PermissionResource\Pages;
 
-use App\Filament\Resources\UserResource;
+use App\Filament\Resources\PermissionResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditUser extends EditRecord
+class EditPermission extends EditRecord
 {
-    protected static string $resource = UserResource::class;
+    protected static string $resource = PermissionResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -16,6 +16,7 @@ class EditUser extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
@@ -23,6 +24,6 @@ class EditUser extends EditRecord
 
     protected function getSavedNotificationTitle(): ?string
     {
-        return 'User updated';
+        return 'Permission updated';
     }
 }

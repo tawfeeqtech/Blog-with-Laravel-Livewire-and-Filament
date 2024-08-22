@@ -1,3 +1,3 @@
-<div class="text-gray-800 font-semibold">
-    <span class="text-yellow-500 text-xl">&lt;YELO&gt;</span>
+<div class="font-semibold text-gray-800">
+    <span class="text-xl text-yellow-500">{{ config('app.name', '') }}</span>
 </div>

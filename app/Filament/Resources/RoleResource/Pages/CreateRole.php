@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CategoryResource\Pages;
+namespace App\Filament\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\RoleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateCategory extends CreateRecord
+class CreateRole extends CreateRecord
 {
-    protected static string $resource = CategoryResource::class;
-
+    protected static string $resource = RoleResource::class;
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('index');
@@ -17,6 +16,6 @@ class CreateCategory extends CreateRecord
 
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Category Created';
+        return 'Role Created';
     }
 }

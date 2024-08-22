@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CategoryResource\Pages;
+namespace App\Filament\Resources\PermissionResource\Pages;
 
-use App\Filament\Resources\CategoryResource;
+use App\Filament\Resources\PermissionResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateCategory extends CreateRecord
+class CreatePermission extends CreateRecord
 {
-    protected static string $resource = CategoryResource::class;
+    protected static string $resource = PermissionResource::class;
 
     protected function getRedirectUrl(): string
     {
@@ -17,6 +17,6 @@ class CreateCategory extends CreateRecord
 
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Category Created';
+        return 'Permission Created';
     }
 }

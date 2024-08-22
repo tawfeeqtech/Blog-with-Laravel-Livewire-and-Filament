@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -21,6 +22,7 @@ class User extends Authenticatable implements FilamentUser
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    use HasRoles;
     const ROLE_ADMIN = 'ADMIN';
     const ROLE_EDITOR = 'EDITOR';
     const ROLE_USER = 'USER';
@@ -32,9 +34,14 @@ class User extends Authenticatable implements FilamentUser
         self::ROLE_USER => 'User',
     ];
 
-    public function canAccessPanel(Panel $panel): bool
+    /* public function canAccessPanel(Panel $panel): bool
     {
         return $this->can('view-admin', User::class);
+    } */
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->hasRole('Admin');
     }
 
     public function isAdmin()

@@ -26,7 +26,8 @@ Route::get('/language/{locale}', function ($locale) {
     }
 
     return redirect()->back();
-})->name('locale');
+})->where('locale', '[a-zA-Z]{2}')
+    ->name('locale');
 
 Route::middleware([
     'auth:sanctum',

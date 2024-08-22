@@ -31,6 +31,7 @@ class PostResource extends Resource
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Projects';
 
     public static function form(Form $form): Form
     {
@@ -51,7 +52,12 @@ class PostResource extends Resource
 
                 ])->columns(2),
                 Section::make('Meta Content')->schema([
-                    FileUpload::make('image')->image()->directory('posts/thumbnails'),
+                    // FileUpload::make('image')->image()->directory('posts/thumbnails')->resize(50),
+                    FileUpload::make('image')->image()->directory('posts/thumbnails')
+                        ->imageCropAspectRatio('1:1')
+                        ->imageResizeMode('contain')
+                        ->imageResizeTargetWidth('466')
+                        ->imageResizeTargetHeight('260'),
                     DateTimePicker::make('published_at')->nullable(),
                     Checkbox::make('featured'),
                     //

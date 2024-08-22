@@ -14,12 +14,17 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\Select;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationGroup = 'Settings';
+    protected static ?int $navigationSort = 1;
+
+
 
     public static function form(Form $form): Form
     {
@@ -32,9 +37,15 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Select::make('role')
-                    ->options(User::ROLES)
-                    ->required(),
+                // Forms\Components\Select::make('role')
+                //     ->options(User::ROLES)
+                //     ->required(),
+                Select::make('roles')
+                    ->multiple()
+                    ->relationship('roles', 'name')->preload(),
+                Select::make('permissions')
+                    ->multiple()
+                    ->relationship('permissions', 'name')->preload(),
                 TextInput::make('password')
                     ->password()
                     ->dehydrateStateUsing(fn($state) => Hash::make($state))
@@ -63,12 +74,15 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('role')
                     ->sortable()
                     ->searchable(),
+
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
