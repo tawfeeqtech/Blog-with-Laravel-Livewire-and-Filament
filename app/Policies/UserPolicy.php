@@ -17,7 +17,12 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user->hasRole('Admin');
+        // return $user->hasRole('Admin');
+        if ($user->hasPermissionTo('view-user')) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
